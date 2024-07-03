@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+extension Bundle {
+    var baseURL: String {
+        return object(forInfoDictionaryKey: "BASE_URL") as? String ?? ""
+    }
+}
+
 extension Color {
     init(hex: UInt, opacity: Double = 1.0) {
         self.init(

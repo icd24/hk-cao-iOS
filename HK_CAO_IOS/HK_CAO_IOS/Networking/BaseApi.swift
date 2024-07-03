@@ -12,19 +12,8 @@ typealias DRRequestHandler = ([String: Any]?, URLResponse?, ApiError?) -> Void
 class ApiManager {
     static let shared = ApiManager()
     
-#if PRODUCTION
-    static let baseURL = "https://api.smakye.com/api"
-    static let clientSecret = "jqUvsB3eRw7HlP6HKHPiAHwGwn"
-#elseif DEV
-    static let baseURL = "https://dev-api.smakye.com/api"
-    static let clientSecret = "g6mxMe1CFDod3A0NTlwbt"
-#elseif STAGING
-    static let baseURL = "https://stg-api.smakye.com/api"
-    static let clientSecret = "n8CZICSrTsGrwTsSpkmHCsFnO"
-#else
-    static let baseURL = "https://dev-api.smakye.com/api"
-    static let clientSecret = "g6mxMe1CFDod3A0NTlwbt"
-#endif
+    static let baseURL = Bundle.main.baseURL
+    static let clientSecret = "sadfhasdkufhasdhf"
     
     static let clientSecretKey = "client-secret"
     static let accessTokenKey = "Authorization"

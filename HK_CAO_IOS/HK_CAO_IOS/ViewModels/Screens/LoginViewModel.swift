@@ -10,8 +10,8 @@ import SwiftUI
 class LoginViewModel: ObservableObject {
     @Published var username: String = ""
     @Published var password: String = ""
-    @Published var usernameError: String?
-    @Published var passwordError: String?
+    var usernameError: String?
+    var passwordError: String?
     @Published var actionAvailable: Bool = true
     @Published var storeLoginInformation: Bool = false {
         didSet {
@@ -35,17 +35,57 @@ class LoginViewModel: ObservableObject {
         }
         
         guard validation() else {
+            AppState.showAlert(title: "Error with input", content: "\((usernameError != nil) ? "\(usernameError!)\n" : "")\(passwordError ?? "")")
             return
         }
         
         actionAvailable = false
+        
+        LoginApi.login(username: username, password: password) { dic, _, error in
+            self.actionAvailable = true
+            if let err = error {
+                ErrorHandler.handler.handleApiError(error: err, dict: dic)
+                return
+            }
+            
+            guard let status: String = dic?["status_code"] as? String, status == ErrorHandler.successCode
+            else {
+                ErrorHandler.handler.handleApiError(error: error, dict: dic)
+                return
+            }
+            
+            guard let data: [String: Any] = dic?["data"] as? [String: Any]
+            else {
+                AppState.showAlert(title: AppString.errorDefault)
+                return
+            }
+            
+            let userInfo = UserInfo(dictionary: data, email: self.username)
+            Preferences.shared.userInfo = userInfo
+            
+            self.clearLoginInfo()
+            AppState.shared.currentScreen = .home
+        }
     }
     
     func forgotPassword() {
         AppState.shared.currentScreen = .forgotPassword
     }
+    
+    func forgotUserId() {
+        // TODO: Go to forgot user id screen
+        AppState.shared.currentScreen = .forgotPassword
+    }
 
+    func register() {
+        // TODO: Go to register screen
+        AppState.shared.currentScreen = .home
+    }
+    
     func validation() -> Bool {
+        usernameError = Validation.validationEmail(email: username, fieldName: AppString.loginMailAddress)
+        passwordError = Validation.validationPassword(password: password, fieldName: AppString.loginPassword)
+        
         return usernameError == nil && passwordError == nil
     }
     

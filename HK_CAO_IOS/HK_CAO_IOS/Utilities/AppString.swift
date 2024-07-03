@@ -26,12 +26,14 @@ struct AppString {
     static let termOfServiceTitle = "キャリオク利用規約"
     
     // Login
-    static let loginMailAddress = ""
-    static let loginPassword = ""
-    static let loginForgotPassword = ""
-    static let loginForgotLoginId = ""
-    static let loginRegister = ""
+    static let loginMailAddress = "メールアドレス"
+    static let loginPassword = "パスワード"
+    static let loginForgotPassword = "パスワードをお忘れの方はこちら"
+    static let loginForgotLoginId = "ログインIDをお忘れの方はこちら"
+    static let loginRegister = "会員登録はこちら"
     
     // error message
     static let errorDefault = "defaultMessage"
+    static let errorMailFormat = "mail format wrong"
+    static let errorPassword = "is 8 characters or more"
 }

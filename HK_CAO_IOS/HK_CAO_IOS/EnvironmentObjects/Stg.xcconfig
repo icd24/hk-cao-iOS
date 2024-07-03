@@ -1,0 +1,11 @@
+//
+//  Stg.xcconfig
+//  HK_CAO_IOS
+//
+//  Created by HieuNV on 2024/07/03.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BASE_URL = "http://52.76.88.61:8080"

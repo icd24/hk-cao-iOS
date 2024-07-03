@@ -13,6 +13,8 @@ class AppState: ObservableObject {
     @Published var isAlertPresented: Bool = false
     @Published var alert: AlertState = AlertState()
     
+    @Published var deviceToken: String = ""
+    
     @Published var splashViewModel = SplashViewModel()
     @Published var walkthroughModel = WalkthroughViewModel()
     @Published var termOfServiceModel = TermOfServiceViewModel()

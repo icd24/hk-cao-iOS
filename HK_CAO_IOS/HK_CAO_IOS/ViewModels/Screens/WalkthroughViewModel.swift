@@ -9,8 +9,7 @@ import SwiftUI
 
 class WalkthroughViewModel: ObservableObject {
     func onGoToLogin() {
-        // TODO: will go to login screen
-        AppState.shared.currentScreen = .home
+        AppState.shared.currentScreen = .login
     }
     
     func onRegister() {

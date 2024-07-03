@@ -14,9 +14,16 @@ struct AppColors {
     static let textWhite = Color(hex: 0xFFFFFF)
     static let backgroundWhite = Color(hex: 0xFFFFFF, opacity: 0.4)
     static let termOfServiceBackground = Color(hex: 0xF5F5F5)
+    
+    static let textFieldTitle = Color(hex: 0x2D2D2D)
+    static let hyperLink = Color(hex: 0x6654BF)
+    
     static let tabAccent = Color(hex: 0xFFFFFF)
     static let tabUnselect = Color(hex: 0xADCDFA)
     static let tabUnselectUI = UIColor(hex: 0xADCDFA)
+    
+    
+    
     static let pairingText = Color(hex: 0xC7DBFF)
     static let unlockedText = Color(hex: 0x30475D)
     static let tabBackground = main
