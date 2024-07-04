@@ -9,3 +9,4 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 BASE_URL = http:/$()/52.76.88.61:8080
+SERVICE_PATH = GoogleService-Info-DEV

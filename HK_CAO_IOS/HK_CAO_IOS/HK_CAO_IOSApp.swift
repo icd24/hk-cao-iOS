@@ -25,8 +25,15 @@ struct HK_CAO_IOSApp: App {
     }
 }
 
-class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        let servicePath = Bundle.main.path(forResource: Bundle.main.baseServicePath, ofType: "plist") ?? ""
+        guard let fileOpts = FirebaseOptions(contentsOfFile: servicePath) else {
+            fatalError("error service path")
+        }
+        FirebaseApp.configure(options: fileOpts)
+        
         UNUserNotificationCenter.current().delegate = self
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { (granted, error) in
@@ -39,8 +46,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
                 PrintLog.log(message: "Notification authorization denied.")
             }
         }
-        // TODO: open this after got GoogleService-Info.plist
-//        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
         
         return true
     }
@@ -57,5 +63,15 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     func application(_ application: UIApplication,
                      didFailToRegisterForRemoteNotificationsWithError error: Error) {
         PrintLog.log(message: "Failed to register: \(error)")
+    }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        PrintLog.log(message: "Got messaging firebase: \(messaging)")
+        if fcmToken != nil {
+            AppState.shared.deviceToken = fcmToken!
+        }
+        else {
+            PrintLog.log(message: "cannot get fcm token")
+        }
     }
 }

@@ -43,6 +43,7 @@
 		8241346A2C2C7A1C00486E28 /* LoginTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824134672C2C7A1C00486E28 /* LoginTextFieldStyle.swift */; };
 		8241346E2C2C7A2700486E28 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8241346B2C2C7A2700486E28 /* AppState.swift */; };
 		828033092C35A5BB007C84F3 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 828033082C35A5BB007C84F3 /* Dev.xcconfig */; };
+		828804CB2C37062500CD4BC8 /* GoogleService-Info-DEV.plist in Resources */ = {isa = PBXBuildFile; fileRef = 828804CA2C37062500CD4BC8 /* GoogleService-Info-DEV.plist */; };
 		82D4D48C2C2FFCBF00A24685 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82D4D48B2C2FFCBF00A24685 /* Launch Screen.storyboard */; };
 		82D4D48E2C30049C00A24685 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D4D48D2C30049C00A24685 /* HomeTabView.swift */; };
 		82D4D4902C3004AE00A24685 /* HomeTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D4D48F2C3004AE00A24685 /* HomeTabModel.swift */; };
@@ -105,6 +106,7 @@
 		828033082C35A5BB007C84F3 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		8280330A2C35A5D4007C84F3 /* Stg.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Stg.xcconfig; sourceTree = "<group>"; };
 		8280330B2C35A5DE007C84F3 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		828804CA2C37062500CD4BC8 /* GoogleService-Info-DEV.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-DEV.plist"; sourceTree = "<group>"; };
 		82D4D48B2C2FFCBF00A24685 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		82D4D48D2C30049C00A24685 /* HomeTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		82D4D48F2C3004AE00A24685 /* HomeTabModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabModel.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				828033082C35A5BB007C84F3 /* Dev.xcconfig */,
 				8280330A2C35A5D4007C84F3 /* Stg.xcconfig */,
 				8280330B2C35A5DE007C84F3 /* Production.xcconfig */,
+				828804CA2C37062500CD4BC8 /* GoogleService-Info-DEV.plist */,
 			);
 			path = EnvironmentObjects;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				824133F72C2C753F00486E28 /* Preview Assets.xcassets in Resources */,
 				828033092C35A5BB007C84F3 /* Dev.xcconfig in Resources */,
 				824133F32C2C753F00486E28 /* Assets.xcassets in Resources */,
+				828804CB2C37062500CD4BC8 /* GoogleService-Info-DEV.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,7 +792,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = abc.cd.hk_cao_ios;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mirabo-global.hk-cao.dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
