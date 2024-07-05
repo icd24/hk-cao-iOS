@@ -42,6 +42,7 @@
 		824134692C2C7A1C00486E28 /* BorderTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824134662C2C7A1C00486E28 /* BorderTextFieldStyle.swift */; };
 		8241346A2C2C7A1C00486E28 /* LoginTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824134672C2C7A1C00486E28 /* LoginTextFieldStyle.swift */; };
 		8241346E2C2C7A2700486E28 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8241346B2C2C7A2700486E28 /* AppState.swift */; };
+		824FAFAB2C38465C0037A78E /* Info-DEV.plist in Resources */ = {isa = PBXBuildFile; fileRef = 824FAFAA2C38465C0037A78E /* Info-DEV.plist */; };
 		828033092C35A5BB007C84F3 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 828033082C35A5BB007C84F3 /* Dev.xcconfig */; };
 		828804CB2C37062500CD4BC8 /* GoogleService-Info-DEV.plist in Resources */ = {isa = PBXBuildFile; fileRef = 828804CA2C37062500CD4BC8 /* GoogleService-Info-DEV.plist */; };
 		82D4D48C2C2FFCBF00A24685 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82D4D48B2C2FFCBF00A24685 /* Launch Screen.storyboard */; };
@@ -103,6 +104,7 @@
 		824134662C2C7A1C00486E28 /* BorderTextFieldStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderTextFieldStyle.swift; sourceTree = "<group>"; };
 		824134672C2C7A1C00486E28 /* LoginTextFieldStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextFieldStyle.swift; sourceTree = "<group>"; };
 		8241346B2C2C7A2700486E28 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		824FAFAA2C38465C0037A78E /* Info-DEV.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-DEV.plist"; sourceTree = "<group>"; };
 		828033082C35A5BB007C84F3 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		8280330A2C35A5D4007C84F3 /* Stg.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Stg.xcconfig; sourceTree = "<group>"; };
 		8280330B2C35A5DE007C84F3 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				8280330A2C35A5D4007C84F3 /* Stg.xcconfig */,
 				8280330B2C35A5DE007C84F3 /* Production.xcconfig */,
 				828804CA2C37062500CD4BC8 /* GoogleService-Info-DEV.plist */,
+				824FAFAA2C38465C0037A78E /* Info-DEV.plist */,
 			);
 			path = EnvironmentObjects;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				824133E82C2C753D00486E28 /* Frameworks */,
 				824133E92C2C753D00486E28 /* Resources */,
 				F44241E391887713597FB039 /* [CP] Embed Pods Frameworks */,
+				824FAFAC2C3847C60037A78E /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -400,6 +404,7 @@
 				824133F72C2C753F00486E28 /* Preview Assets.xcassets in Resources */,
 				828033092C35A5BB007C84F3 /* Dev.xcconfig in Resources */,
 				824133F32C2C753F00486E28 /* Assets.xcassets in Resources */,
+				824FAFAB2C38465C0037A78E /* Info-DEV.plist in Resources */,
 				828804CB2C37062500CD4BC8 /* GoogleService-Info-DEV.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +433,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		824FAFAC2C3847C60037A78E /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ \"${CONFIGURATION}\" == \"DEV\" ]; then\n    /usr/libexec/PlistBuddy -c \"Merge ${SRCROOT}/HK_CAO_IOS/EnvironmentObjects/Info-DEV.plist\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi\n";
 		};
 		F44241E391887713597FB039 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
