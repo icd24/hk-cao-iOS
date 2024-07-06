@@ -22,7 +22,7 @@ struct AppTabView: View {
                 ForEach(Array(views.enumerated()), id: \.element.title) { index, item in
                     item.view
                         .opacity(self.viewModel.selectedTab == index ? 1 : 0)
-                        .padding(.bottom, 60)
+                        .padding(.bottom, 50)
                 }
                 
                 VStack {
@@ -31,7 +31,7 @@ struct AppTabView: View {
                         AppColors.tabBackground
                             .frame(height: 50 + geometry.safeAreaInsets.bottom)
                         
-                        HStack(spacing: 0) {
+                        HStack(spacing: 2) {
                             ForEach(Array(views.enumerated()), id: \.element.title) { index, item in
                                 Button(
                                     action: {
@@ -74,11 +74,17 @@ struct AppTabView: View {
                                             }
                                         }
                                         .padding(.vertical, 5)
-                                        .frame(maxWidth: .infinity)       
+                                        .frame(maxWidth: .infinity, maxHeight: 44)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .fill(self.viewModel.selectedTab == index ? AppColors.mainWhite : AppColors.transparent)
+                                        )
                                     }
                                 )
+                                
                             }
                         }
+                        .padding(.top, 5)
                         .padding(.horizontal, 10)
                     }
                 }

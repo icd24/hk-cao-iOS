@@ -9,13 +9,15 @@ import Foundation
 import SwiftUI
 
 class LoginApi {
-    static private let loginUrl = "/login"
+    static private let loginUrl = "/api/login"
     static func login(username: String, password: String, completionHandler: @escaping DRRequestHandler) {
         let parameters: [String: Any] = [
             "email": username,
             "password": password,
-            "phone_uuid": UIDevice.current.identifierForVendor!.uuidString
+            "deviceToken": AppState.shared.deviceToken,
+            "deviceType": "IOS"
         ]
+        
         ApiManager.callJsonAPI(api: loginUrl, parameter: parameters) { dic, res, error in
             completionHandler(dic, res, error)
         }
