@@ -11,6 +11,7 @@ class Preferences {
     static let shared = Preferences()
     
     private let userDefaults = UserDefaults.standard
+    private let showedTutorialViewKey = "showedTutorialView"
     private let userInfoKey = "userInfo"
     private let loginInfoKey = "loginInfo"
     private let rememberLoginKey = "rememberLogin"
@@ -40,6 +41,15 @@ class Preferences {
         }
         set {
             userDefaults.set(newValue, forKey: rememberLoginKey)
+        }
+    }
+    
+    var showedTutorialView: Bool {
+        get {
+            return userDefaults.bool(forKey: showedTutorialViewKey)
+        }
+        set {
+            userDefaults.set(newValue, forKey: showedTutorialViewKey)
         }
     }
 }

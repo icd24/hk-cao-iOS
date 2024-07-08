@@ -21,6 +21,7 @@ struct AppString {
     static let okContent = "OK"
     static let cancel = "キャンセル"
     static let back = "戻る"
+    static let careerSheetChangeButton = "キャリアシートを更新する"
     
     // TermOfService
     static let termOfServiceTitle = "キャリオク利用規約"

@@ -20,6 +20,7 @@ class AppState: ObservableObject {
     @Published var termOfServiceModel = TermOfServiceViewModel()
     @Published var loginViewModel = LoginViewModel()
     @Published var forgotPasswordViewModel = ForgotPasswordViewModel()
+    @Published var tutorialViewModel = TutorialViewModel()
     @Published var homeTabViewModel = HomeTabViewModel()
     
     static let shared = AppState()
@@ -86,5 +87,6 @@ enum Screen {
     case walkthrough
     case login
     case home
+    case tutorial
     case forgotPassword
 }

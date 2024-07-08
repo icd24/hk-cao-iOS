@@ -33,6 +33,9 @@ struct ContentView: View {
                     case .forgotPassword:
                         ForgotPasswordView(viewModel: appState.forgotPasswordViewModel)
                             .environmentObject(appState)
+                    case .tutorial:
+                        TutorialView(viewModel: appState.tutorialViewModel)
+                            .environmentObject(appState)
                     }
                 
                 if appState.isAlertPresented {
@@ -47,11 +50,5 @@ struct ContentView: View {
                 }
             }
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

@@ -30,6 +30,11 @@ class LoginViewModel: ObservableObject {
     }
 
     func login() {
+        // TODO: Act like login success
+            AppState.shared.currentScreen = .tutorial
+            return
+        // TODO: End act like login success
+        
         guard actionAvailable else {
             return
         }
@@ -64,6 +69,7 @@ class LoginViewModel: ObservableObject {
             Preferences.shared.userInfo = userInfo
             
             self.clearLoginInfo()
+            // TODO: Check to show tutorial or go to home.
             AppState.shared.currentScreen = .home
         }
     }
