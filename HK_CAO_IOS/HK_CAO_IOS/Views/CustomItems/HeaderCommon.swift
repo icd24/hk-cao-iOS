@@ -16,22 +16,30 @@ struct HeaderCommon: View {
                     Spacer().frame(height: 10)
                     HStack {
                         Spacer().frame(width: 20)
-                        Spacer().frame(width: 20)
-                        Spacer()
+                        if !viewModel.isLeftHeader {
+                            Spacer().frame(width: 20)
+                            Spacer()
+                        }
                         Image("img_title_logo")
                             .resizable()
                             .scaledToFit()
                             .frame(height: 20)
                         Spacer()
-                        Image("ico_menu")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 20)
-                        Spacer().frame(width: 20)
+                        if viewModel.isShowMenu {
+                            Image("ico_menu")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 20)
+                            Spacer().frame(width: 20)
+                        }
                     }
                     Spacer()
                 }
-                .background(AppColors.mainWhite)
+                .background(
+                    Rectangle()
+                        .fill(AppColors.textWhite)
+                        .shadow(color: AppColors.shadow10, radius: 2, x: 0, y: 4)
+                )
                 .overlay(
                     Group {
                         if viewModel.isMasked {

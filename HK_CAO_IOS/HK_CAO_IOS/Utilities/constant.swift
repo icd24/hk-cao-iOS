@@ -14,8 +14,10 @@ struct AppColors {
     static let textWhite = Color(hex: 0xFFFFFF)
     static let textDark = Color(hex: 0x404040)
     static let backgroundWhite = Color(hex: 0xFFFFFF, opacity: 0.4)
+    static let backgroundRegister = Color(hex: 0xF8FBFF)
     static let termOfServiceBackground = Color(hex: 0xF5F5F5)
     static let transparent = Color(hex: 0xFFFFFF, opacity: 0.0)
+    static let registerDescriptionBorder = Color(hex: 0xFFD3D4)
     
     static let textFieldTitle = Color(hex: 0x2D2D2D)
     static let hyperLink = Color(hex: 0x6654BF)

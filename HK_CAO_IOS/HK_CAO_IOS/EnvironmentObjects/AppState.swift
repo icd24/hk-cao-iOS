@@ -20,6 +20,7 @@ class AppState: ObservableObject {
     @Published var termOfServiceModel = TermOfServiceViewModel()
     @Published var loginViewModel = LoginViewModel()
     @Published var forgotPasswordViewModel = ForgotPasswordViewModel()
+    @Published var registerViewModel = RegisterViewModel()
     @Published var tutorialViewModel = TutorialViewModel()
     @Published var homeTabViewModel = HomeTabViewModel()
     
@@ -89,4 +90,13 @@ enum Screen {
     case home
     case tutorial
     case forgotPassword
+    case termOfService
+    case register_EmailPassword
+    case register_Gender
+    case register_Name
+    case register_Location
+    case register_Phone
+    case register_Birthday
+    case register_Study
+    case register_Car
 }

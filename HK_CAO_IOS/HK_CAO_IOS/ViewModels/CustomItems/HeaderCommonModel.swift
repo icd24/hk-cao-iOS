@@ -9,4 +9,7 @@ import Foundation
 
 class HeaderCommonModel: ObservableObject {
     @Published var isMasked: Bool = false
+    @Published var isLeftHeader: Bool = false
+    @Published var isShowMenu: Bool = true
+    @Published var isShadow: Bool = true
 }

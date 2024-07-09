@@ -84,8 +84,7 @@ class LoginViewModel: ObservableObject {
     }
 
     func register() {
-        // TODO: Go to register screen
-        AppState.shared.currentScreen = .home
+        AppState.shared.currentScreen = .register_EmailPassword
     }
     
     func validation() -> Bool {

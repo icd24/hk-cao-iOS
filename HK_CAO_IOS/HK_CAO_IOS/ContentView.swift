@@ -36,6 +36,13 @@ struct ContentView: View {
                     case .tutorial:
                         TutorialView(viewModel: appState.tutorialViewModel)
                             .environmentObject(appState)
+                    case .termOfService:
+                        TermOfServiceView(viewModel: TermOfServiceViewModel())
+                    case .register_EmailPassword:
+                        Register_EmailPassword(viewModel: appState.registerViewModel)
+                            .environmentObject(appState)
+                    default:
+                        VStack{}
                     }
                 
                 if appState.isAlertPresented {
