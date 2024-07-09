@@ -16,6 +16,7 @@ class HomeTabViewModel: ObservableObject {
     static let messageTabIndex = 4
 
 //    @Published var topViewModel = TopViewModel()
+    @Published var isMasked: Bool = false
     @Published var selectedTab: Int = HomeTabViewModel.topTabIndex
     @Published var previousTab: Int = HomeTabViewModel.topTabIndex
     

@@ -87,6 +87,13 @@ struct AppTabView: View {
                         .padding(.top, 5)
                         .padding(.horizontal, 10)
                     }
+                    .overlay(
+                        Group {
+                            if viewModel.isMasked {
+                                AppColors.maskColor.edgesIgnoringSafeArea(.bottom)
+                            }
+                        }
+                    )
                 }
                 .edgesIgnoringSafeArea(.bottom)
             }

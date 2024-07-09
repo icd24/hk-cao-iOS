@@ -12,6 +12,7 @@ struct AppColors {
     static let mainWhite = Color(hex: 0xFFFFFF)
     static let main300 = Color(hex: 0x004195, opacity: 0.3)
     static let textWhite = Color(hex: 0xFFFFFF)
+    static let textDark = Color(hex: 0x404040)
     static let backgroundWhite = Color(hex: 0xFFFFFF, opacity: 0.4)
     static let termOfServiceBackground = Color(hex: 0xF5F5F5)
     static let transparent = Color(hex: 0xFFFFFF, opacity: 0.0)
@@ -22,8 +23,8 @@ struct AppColors {
     static let tabAccent = main
     static let tabUnselect = Color(hex: 0xADCDFA)
     static let tabUnselectUI = UIColor(hex: 0xADCDFA)
-    
-    
+    static let maskColor = Color(hex: 0x000000, opacity: 0.6)
+    static let shadowRound = Color(hex: 0xD6E1F0)
     
     static let pairingText = Color(hex: 0xC7DBFF)
     static let unlockedText = Color(hex: 0x30475D)
