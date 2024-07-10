@@ -39,7 +39,7 @@ struct ContentView: View {
                     case .termOfService:
                         TermOfServiceView(viewModel: TermOfServiceViewModel())
                     case .register_EmailPassword:
-                        Register_EmailPassword(viewModel: appState.registerViewModel)
+                        Register_EmailPasswordView(viewModel: appState.registerViewModel)
                             .environmentObject(appState)
                     default:
                         VStack{}

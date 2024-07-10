@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Register_EmailPassword: View {
+struct Register_EmailPasswordView: View {
     @ObservedObject var viewModel: RegisterViewModel
     @FocusState private var isFocusedTextField: Bool
     
