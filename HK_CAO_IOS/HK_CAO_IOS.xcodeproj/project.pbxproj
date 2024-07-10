@@ -63,13 +63,14 @@
 		82D4D49A2C3007CF00A24685 /* CareerSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D4D4992C3007CF00A24685 /* CareerSheetView.swift */; };
 		82D4D49C2C3007DE00A24685 /* InterviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D4D49B2C3007DE00A24685 /* InterviewView.swift */; };
 		82D4D49E2C3007FE00A24685 /* AuctionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D4D49D2C3007FE00A24685 /* AuctionView.swift */; };
-		82D4D4A02C30080E00A24685 /* MessageVew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D4D49F2C30080E00A24685 /* MessageVew.swift */; };
+		82D4D4A02C30080E00A24685 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D4D49F2C30080E00A24685 /* MessageView.swift */; };
 		82D4D4A22C316E9000A24685 /* AppString+Walkthrough.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D4D4A12C316E9000A24685 /* AppString+Walkthrough.swift */; };
 		82D4D4A42C316EC400A24685 /* AppString+TermOfServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D4D4A32C316EC400A24685 /* AppString+TermOfServices.swift */; };
 		82D5AFDE2C3D9E9900540B92 /* Register+EmailPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5AFDD2C3D9E9900540B92 /* Register+EmailPasswordView.swift */; };
 		82D5AFE02C3D9FF400540B92 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5AFDF2C3D9FF400540B92 /* RegisterViewModel.swift */; };
 		82D5AFE22C3DA92A00540B92 /* AppString+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5AFE12C3DA92A00540B92 /* AppString+Register.swift */; };
 		82D7E21B2C3C564E00C5FD6C /* TextBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D7E21A2C3C564E00C5FD6C /* TextBubble.swift */; };
+		82DBF6672C3EED1B009C0B0D /* DimensionSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DBF6662C3EED1B009C0B0D /* DimensionSupport.swift */; };
 		82E77DF52C399FF90048D6F7 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E77DF42C399FF90048D6F7 /* TutorialView.swift */; };
 		82E77DF72C39A0D70048D6F7 /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E77DF62C39A0D70048D6F7 /* TutorialViewModel.swift */; };
 		A19C388907A880A0420303CA /* Pods_HK_CAO_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ABFDCE3FC4F786FF9DFAEE /* Pods_HK_CAO_IOS.framework */; };
@@ -141,13 +142,14 @@
 		82D4D4992C3007CF00A24685 /* CareerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerSheetView.swift; sourceTree = "<group>"; };
 		82D4D49B2C3007DE00A24685 /* InterviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewView.swift; sourceTree = "<group>"; };
 		82D4D49D2C3007FE00A24685 /* AuctionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionView.swift; sourceTree = "<group>"; };
-		82D4D49F2C30080E00A24685 /* MessageVew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageVew.swift; sourceTree = "<group>"; };
+		82D4D49F2C30080E00A24685 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		82D4D4A12C316E9000A24685 /* AppString+Walkthrough.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppString+Walkthrough.swift"; sourceTree = "<group>"; };
 		82D4D4A32C316EC400A24685 /* AppString+TermOfServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppString+TermOfServices.swift"; sourceTree = "<group>"; };
 		82D5AFDD2C3D9E9900540B92 /* Register+EmailPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Register+EmailPasswordView.swift"; sourceTree = "<group>"; };
 		82D5AFDF2C3D9FF400540B92 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		82D5AFE12C3DA92A00540B92 /* AppString+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppString+Register.swift"; sourceTree = "<group>"; };
 		82D7E21A2C3C564E00C5FD6C /* TextBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBubble.swift; sourceTree = "<group>"; };
+		82DBF6662C3EED1B009C0B0D /* DimensionSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimensionSupport.swift; sourceTree = "<group>"; };
 		82E77DF42C399FF90048D6F7 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		82E77DF62C39A0D70048D6F7 /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		83E6BB36C908A73658EC6764 /* Pods-HK_CAO_IOS.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HK_CAO_IOS.production.xcconfig"; path = "Target Support Files/Pods-HK_CAO_IOS/Pods-HK_CAO_IOS.production.xcconfig"; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				824134272C2C7A0600486E28 /* LoginView.swift */,
 				82D5AFDD2C3D9E9900540B92 /* Register+EmailPasswordView.swift */,
 				82D4D48D2C30049C00A24685 /* HomeTabView.swift */,
+				82E77DF42C399FF90048D6F7 /* TutorialView.swift */,
 				824134282C2C7A0600486E28 /* SplashView.swift */,
 				824134292C2C7A0600486E28 /* WalkthroughView.swift */,
 				82D4D4912C30056000A24685 /* TermOfServiceView.swift */,
@@ -291,8 +294,7 @@
 				82D4D4992C3007CF00A24685 /* CareerSheetView.swift */,
 				82D4D49B2C3007DE00A24685 /* InterviewView.swift */,
 				82D4D49D2C3007FE00A24685 /* AuctionView.swift */,
-				82D4D49F2C30080E00A24685 /* MessageVew.swift */,
-				82E77DF42C399FF90048D6F7 /* TutorialView.swift */,
+				82D4D49F2C30080E00A24685 /* MessageView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -369,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				8241346B2C2C7A2700486E28 /* AppState.swift */,
+				82DBF6662C3EED1B009C0B0D /* DimensionSupport.swift */,
 				828033082C35A5BB007C84F3 /* Dev.xcconfig */,
 				8280330A2C35A5D4007C84F3 /* Stg.xcconfig */,
 				8280330B2C35A5DE007C84F3 /* Production.xcconfig */,
@@ -574,6 +577,7 @@
 				8241340D2C2C79F600486E28 /* Validation.swift in Sources */,
 				824134622C2C7A1400486E28 /* LogoutApi.swift in Sources */,
 				8241342C2C2C7A0600486E28 /* AppAlertView.swift in Sources */,
+				82DBF6672C3EED1B009C0B0D /* DimensionSupport.swift in Sources */,
 				8241345F2C2C7A1400486E28 /* ErrorHandler.swift in Sources */,
 				82D4D49C2C3007DE00A24685 /* InterviewView.swift in Sources */,
 				824134582C2C7A1400486E28 /* BaseApi.swift in Sources */,
@@ -581,7 +585,7 @@
 				824134612C2C7A1400486E28 /* LoginAPI.swift in Sources */,
 				82D4D4962C3006EA00A24685 /* TermOfServiceViewModel.swift in Sources */,
 				82D4D4A42C316EC400A24685 /* AppString+TermOfServices.swift in Sources */,
-				82D4D4A02C30080E00A24685 /* MessageVew.swift in Sources */,
+				82D4D4A02C30080E00A24685 /* MessageView.swift in Sources */,
 				82D5AFE02C3D9FF400540B92 /* RegisterViewModel.swift in Sources */,
 				824134092C2C79F600486E28 /* extensions.swift in Sources */,
 				82C437B52C3AAEB8004E12BF /* HeaderCommon.swift in Sources */,

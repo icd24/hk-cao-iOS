@@ -10,6 +10,7 @@ import SwiftUI
 struct TutorialView: View {
     @EnvironmentObject var appState: AppState
     @ObservedObject var viewModel: TutorialViewModel
+    let ds: DimensionSupport = DimensionSupport.shared
     
     init(viewModel: TutorialViewModel) {
         self.viewModel = viewModel
@@ -31,7 +32,7 @@ struct TutorialView: View {
                 Image("ico_confirm_tutorial")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: isMasked ? 68 : 75)
+                    .frame(height: isMasked ? 68 * ds.vRatio : 75 * ds.vRatio)
                     .background(
                         isMasked 
                         ?
@@ -39,9 +40,9 @@ struct TutorialView: View {
                             .fill(AppColors.mainWhite)
                             .shadow(color: AppColors.shadow30, radius: 0, x: 0, y: 0)
                         :
-                            RoundedRectangle(cornerRadius: 12)
+                            RoundedRectangle(cornerRadius: 12 * ds.hRatio)
                             .fill(AppColors.mainWhite)
-                            .shadow(color: AppColors.shadowRound, radius: 12, x: 0, y: 0)
+                            .shadow(color: AppColors.shadowRound, radius: 12 * ds.hRatio, x: 0, y: 0)
                     )
                     .overlay(
                         Group {
@@ -50,9 +51,9 @@ struct TutorialView: View {
                             }
                         }
                     )
-                Spacer().frame(width: 10)
+                Spacer().frame(width: 10 * ds.hRatio)
             }
-            Spacer().frame(height: 20)
+            Spacer().frame(height: 20 * ds.vRatio)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -80,15 +81,18 @@ struct TutorialView: View {
         return GeometryReader { geometry in
             VStack (alignment: .leading, spacing: 0) {
                 HeaderCommon(viewModel: headerViewModel)
-                    .frame(height: 10)
-                Spacer().frame(height: 10)
+                    .frame(height: 10 * ds.vRatio)
+                Spacer().frame(height: 10 * ds.vRatio)
                 
                 TutorialCareerSheetView(viewModel: viewModel.tutorialCareerViewModel)
+                    .zIndex(2.0)
                 ZStack {
                     TutorialAuctionView(viewModel: viewModel.tutorialAuctionViewModel)
+                        .zIndex(1.0)
                     if (viewModel.step == .StepCareerSheet)
                     {
                         careerSheetStepView
+                            .zIndex(2.0)
                     }
                 }
                 ZStack {

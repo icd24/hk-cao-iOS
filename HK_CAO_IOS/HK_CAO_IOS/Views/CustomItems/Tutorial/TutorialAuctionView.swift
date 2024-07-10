@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TutorialAuctionView: View {
     @StateObject var viewModel: TutorialAuctionViewModel
+    let ds: DimensionSupport = DimensionSupport.shared
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
@@ -16,25 +17,25 @@ struct TutorialAuctionView: View {
                     Image("ico_auction_mini")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 23)
+                        .frame(height: 23 * ds.vRatio)
                     Text(AppString.tutorialAuctionTitle)
-                        .font(Font.system(size: 12))
+                        .font(Font.system(size: 12 * ds.hRatio))
                         .padding(.horizontal, 0)
                         .lineLimit(1)
                         .foregroundColor(AppColors.textWhite)
                 }
                 Text(AppString.tutorialAuctionContent)
-                    .font(Font.system(size: 16))
+                    .font(Font.system(size: 16 * ds.hRatio))
                     .fontWeight(.bold)
                     .lineLimit(1)
                     .foregroundColor(AppColors.textWhite)
                 
             }
-            .padding(.vertical, 10)
-            .padding(.horizontal, 20)
+            .padding(.vertical, 12 * ds.vRatio)
+            .padding(.horizontal, 20 * ds.hRatio)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(AppColors.main)
+        .background(AppColors.tutorialAuction)
         .overlay(
             Group {
                 if viewModel.isMasked {

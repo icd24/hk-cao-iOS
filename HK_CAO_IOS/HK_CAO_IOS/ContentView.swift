@@ -56,6 +56,9 @@ struct ContentView: View {
                     )
                 }
             }
+            .onAppear {
+                DimensionSupport.shared.updateRatio(geometry: geometry)
+            }
         }
     }
 }

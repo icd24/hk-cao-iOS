@@ -11,27 +11,28 @@ struct TextBubble: View {
     var mainText: String? = nil
     var subText: String? = nil
     var direction: Alignment = .top
+    let ds: DimensionSupport = DimensionSupport.shared
     
     var body: some View {
         return VStack(alignment: .center, spacing: 0) {
             if direction == .top {
                 TextBubblePointer()
                     .fill(AppColors.mainWhite)
-                    .frame(width: 20, height: 10)
+                    .frame(width: 20 * ds.hRatio, height: 10 * ds.hRatio)
                     .rotationEffect(Angle(degrees: 0))
             }
             HStack(alignment: .center, spacing: 0) {
                 if direction == .leading {
                     TextBubblePointer()
                         .fill(AppColors.mainWhite)
-                        .frame(width: 20, height: 10)
+                        .frame(width: 20 * ds.hRatio, height: 10 * ds.hRatio)
                         .rotationEffect(Angle(degrees: 270))
-                        .offset(x: 5)
+                        .offset(x: 5 * ds.hRatio)
                 }
                 VStack {
                     if mainText != nil {
                         Text(mainText!)
-                            .font(Font.system(size: 14))
+                            .font(Font.system(size: 14 * ds.hRatio))
                             .fontWeight(.bold)
                             .lineLimit(2)
                             .foregroundColor(AppColors.main)
@@ -39,31 +40,31 @@ struct TextBubble: View {
                     }
                     if subText != nil {
                         Text(subText!)
-                            .font(Font.system(size: 12))
+                            .font(Font.system(size: 12 * ds.hRatio))
                             .lineLimit(2)
                             .foregroundColor(AppColors.textDark)
                             .multilineTextAlignment(.center)
                     }
                 }
-                .padding(.horizontal, 10)
-                .padding(.vertical, 6)
+                .padding(.horizontal, 10 * ds.hRatio)
+                .padding(.vertical, 6 * ds.vRatio)
                 .background(
-                    RoundedRectangle(cornerRadius: 6)
+                    RoundedRectangle(cornerRadius: 6 * ds.hRatio)
                         .fill(Color.white)
                 )
                 if direction == .trailing {
                     TextBubblePointer()
                         .fill(AppColors.mainWhite)
-                        .frame(width: 20, height: 10)
+                        .frame(width: 20 * ds.hRatio, height: 10 * ds.hRatio)
                         .rotationEffect(Angle(degrees: 90))
-                        .offset(x: -5)
+                        .offset(x: -5 * ds.hRatio)
                 }
             }
             
             if direction == .bottom {
                 TextBubblePointer()
                     .fill(AppColors.mainWhite)
-                    .frame(width: 20, height: 10)
+                    .frame(width: 20 * ds.hRatio, height: 10 * ds.hRatio)
                     .rotationEffect(Angle(degrees: 180))
             }
         }
