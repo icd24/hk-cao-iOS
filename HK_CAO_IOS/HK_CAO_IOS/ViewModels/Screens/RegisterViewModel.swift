@@ -12,15 +12,31 @@ class RegisterViewModel: ObservableObject {
     // Email password screen
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var emailError: String?
+    @Published var passwordError: String?
     // Name input screen
     @Published var familyName: String = ""
     @Published var fullName: String = ""
     @Published var kanaFamilyName: String = ""
     @Published var kanaFullName: String = ""
     
+    @Published var actionAvailable: Bool = true
+    
     // Email password screen
     func onRegisterEmailPassword() {
+        guard actionAvailable else {
+            return
+        }
         
+        guard validationEmailPassword() else {
+            return
+        }
+    }
+    func validationEmailPassword() -> Bool {
+        emailError = Validation.validationEmail(email: email, fieldName: AppString.loginMailAddress)
+        passwordError = Validation.validationPassword(password: password, fieldName: AppString.loginPassword)
+        
+        return emailError == nil && passwordError == nil
     }
     func onTermOfService() {
         AppState.shared.currentScreen = .termOfService

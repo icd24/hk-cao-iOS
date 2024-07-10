@@ -30,11 +30,6 @@ class LoginViewModel: ObservableObject {
     }
 
     func login() {
-        // TODO: Act like login success
-            AppState.shared.currentScreen = .tutorial
-            return
-        // TODO: End act like login success
-        
         guard actionAvailable else {
             return
         }
@@ -42,6 +37,11 @@ class LoginViewModel: ObservableObject {
         guard validation() else {
             return
         }
+        
+        // TODO: Act like login success
+            AppState.shared.currentScreen = .tutorial
+            return
+        // TODO: End act like login success
         
         actionAvailable = false
         

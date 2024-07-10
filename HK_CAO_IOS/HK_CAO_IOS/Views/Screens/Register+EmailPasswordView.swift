@@ -50,6 +50,14 @@ struct Register_EmailPasswordView: View {
                                     .stroke(AppColors.main, lineWidth: 1)
                             )
                         
+                        if let emailError = viewModel.emailError {
+                            Text(emailError)
+                                .font(Font.system(size: 16))
+                                .foregroundColor(.red)
+                                .padding(.bottom, 2)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        
                         // Password field
                         Text(AppString.loginPassword)
                             .font(Font.system(size: 16))
@@ -67,6 +75,15 @@ struct Register_EmailPasswordView: View {
                                 RoundedRectangle(cornerRadius: 5)
                                     .stroke(AppColors.main, lineWidth: 1)
                             )
+                        
+                        if let passwordError = viewModel.passwordError {
+                            Text(passwordError)
+                                .font(Font.system(size: 16))
+                                .foregroundColor(.red)
+                                .lineLimit(10)
+                                .padding(.bottom, 2)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
                         
                         Button {
                             isFocusedTextField = false
