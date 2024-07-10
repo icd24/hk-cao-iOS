@@ -10,8 +10,8 @@ import SwiftUI
 class LoginViewModel: ObservableObject {
     @Published var username: String = ""
     @Published var password: String = ""
-    var usernameError: String?
-    var passwordError: String?
+    @Published var usernameError: String?
+    @Published var passwordError: String?
     @Published var actionAvailable: Bool = true
     @Published var storeLoginInformation: Bool = false {
         didSet {
@@ -40,7 +40,6 @@ class LoginViewModel: ObservableObject {
         }
         
         guard validation() else {
-            AppState.showAlert(title: "Error with input", content: "\((usernameError != nil) ? "\(usernameError!)\n" : "")\(passwordError ?? "")")
             return
         }
         

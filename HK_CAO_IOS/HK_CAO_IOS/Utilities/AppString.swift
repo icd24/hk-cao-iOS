@@ -35,6 +35,7 @@ struct AppString {
     
     // error message
     static let errorDefault = "defaultMessage"
-    static let errorMailFormat = "mail format wrong"
-    static let errorPassword = "is 8 characters or more"
+    static let errorMailFormat = "が不正です"
+    static let errorPassword = "が不正です"
+    static let errorRequired = "を入力してください"
 }

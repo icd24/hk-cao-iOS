@@ -21,11 +21,11 @@ class Validation {
         }
         
         if validationMaxLength(value: email!, maxLength: maxEmailLength, fieldName: fieldName) != nil {
-            return fieldName + emailErrorText
+            return "＊\(fieldName)\(emailErrorText)"
         }
         
         if validationEmailFormatCheck(value: email!, fieldName: fieldName) != nil {
-            return fieldName + emailErrorText
+            return "＊\(fieldName)\(emailErrorText)"
         }
         
         return nil
@@ -37,11 +37,11 @@ class Validation {
         }
         
         if validationMaxLength(value: password!, maxLength: maxPasswordLength, fieldName: fieldName) != nil {
-            return fieldName + passwordErrorText
+            return "＊\(fieldName)\(passwordErrorText)"
         }
         
         if validationPasswordFormatCheck(value: password!, fieldName: fieldName) != nil {
-            return fieldName + passwordErrorText
+            return "＊\(fieldName)\(passwordErrorText)"
         }
         
         return nil
@@ -49,7 +49,7 @@ class Validation {
     
     static func validationRequired(value: String?, fieldName: String) -> String? {
         guard let value = value, !value.isEmpty else {
-            return "Please input \(fieldName)"
+            return "＊\(fieldName)\(AppString.errorRequired)"
         }
         return nil
     }
