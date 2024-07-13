@@ -45,38 +45,15 @@ class LoginViewModel: ObservableObject {
         
         actionAvailable = false
         
-        LoginApi.login(username: username, password: password) { dic, _, error in
-            self.actionAvailable = true
-            if let err = error {
-                ErrorHandler.handler.handleApiError(error: err, dict: dic)
-                return
+        LoginApi.login(username: username, password: password) { result in
+            switch result {
+            case .success(let data):
+                // TODO: Store data (preference, user info...
+                break
+            case .failure(let error):
+                // TODO: Show error
+                break
             }
-            
-            guard let status: String = dic?["status_code"] as? String, status == ErrorHandler.successCode
-            else {
-                ErrorHandler.handler.handleApiError(error: error, dict: dic)
-                return
-            }
-            
-            guard let data: String = dic?["data"] as? String
-            else {
-                AppState.showAlert(title: AppString.errorDefault)
-                return
-            }
-            
-            do {
-                let userInfo = try JSONDecoder().decode(UserInfo.self, from: data.data(using: .utf8)!)
-                Preferences.shared.userInfo = userInfo
-                
-                self.clearLoginInfo()
-                // TODO: Check to show tutorial or go to home.
-                AppState.shared.currentScreen = .home
-            } catch {
-                AppState.showAlert(title: AppString.errorDefault)
-                return
-            }
-            
-            
         }
     }
     

@@ -8,19 +8,8 @@
 import Foundation
 
 struct LoginRequestModel: Codable {
-    let username: Username
-    let password: Password
+    let username: String
+    let password: String
     let deviceToken: String
     var deviceType: String = "IOS"
-    
-    struct Username: Codable {
-        let email: String
-        let format: Bool
-    }
-    
-    struct Password: Codable {
-        let value: String
-        let createdBy: String
-        let valid: Bool
-    }
 }

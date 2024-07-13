@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias DRRequestHandler = ([String: Any]?, URLResponse?, ApiError?) -> Void
+typealias DRRequestHandler = (Result<Data, ApiError>) -> Void
 
 struct ApiManager {
     static let baseURL = Bundle.main.baseURL
@@ -21,7 +21,8 @@ extension ApiManager {
             throw ApiError.networkUnavailable
         }
         
-        var components = URLComponents(url: URL(string: url)!, resolvingAgainstBaseURL: true)
+        let finalUrl = baseURL + url
+        var components = URLComponents(url: URL(string: finalUrl)!, resolvingAgainstBaseURL: true)
         if let queryData = queryData {
             components?.queryItems = queryData
         }
@@ -122,7 +123,11 @@ enum ApiError: Error {
     case tokenNotAvailable
     case httpError(Int)
     case noData
+    case decodingError
     case unknowned
+    
+    // TODO: Dev only
+    case notImplement
 }
 
 enum HTTPMethod: String {

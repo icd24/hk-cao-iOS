@@ -100,42 +100,43 @@ class ErrorHandler {
     func handleRefreshToken(
         callbackFunction: (() -> Void)? = nil
     ) {
-        if callbackFunction != nil {
-            RefreshTokenApi.refreshToken { dict2, _, error2 in
-                guard let status2: String = dict2?["status_code"] as? String,
-                      status2 == ErrorHandler.successCode,
-                      let data: String = dict2?["data"] as? String,
-                      error2 == nil else {
-                    let message = AppString.errorDefault
-                    Preferences.shared.userInfo = nil
-                    AppState.showAlert(
-                        title: message,
-                        onOk: {
-                            AppState.shared.logoutAction()
-                        }
-                    )
-                    return
-                }
-                
-                do {
-                    let userInfo = try JSONDecoder().decode(UserInfo.self, from: data.data(using: .utf8)!)
-                    Preferences.shared.userInfo = userInfo
-                    callbackFunction!()
-                } catch {
-                    let message = AppString.errorDefault
-                    Preferences.shared.userInfo = nil
-                    AppState.showAlert(
-                        title: message,
-                        onOk: {
-                            AppState.shared.logoutAction()
-                        }
-                    )
-                    return
-                }
-                
-            }
-        } else {
-            AppState.shared.logoutAction()
-        }
+        // TODO: Implement later
+//        if callbackFunction != nil {
+//            RefreshTokenApi.refreshToken { dict2, _, error2 in
+//                guard let status2: String = dict2?["status_code"] as? String,
+//                      status2 == ErrorHandler.successCode,
+//                      let data: String = dict2?["data"] as? String,
+//                      error2 == nil else {
+//                    let message = AppString.errorDefault
+//                    Preferences.shared.userInfo = nil
+//                    AppState.showAlert(
+//                        title: message,
+//                        onOk: {
+//                            AppState.shared.logoutAction()
+//                        }
+//                    )
+//                    return
+//                }
+//                
+//                do {
+//                    let userInfo = try JSONDecoder().decode(UserInfo.self, from: data.data(using: .utf8)!)
+//                    Preferences.shared.userInfo = userInfo
+//                    callbackFunction!()
+//                } catch {
+//                    let message = AppString.errorDefault
+//                    Preferences.shared.userInfo = nil
+//                    AppState.showAlert(
+//                        title: message,
+//                        onOk: {
+//                            AppState.shared.logoutAction()
+//                        }
+//                    )
+//                    return
+//                }
+//                
+//            }
+//        } else {
+//            AppState.shared.logoutAction()
+//        }
     }
 }

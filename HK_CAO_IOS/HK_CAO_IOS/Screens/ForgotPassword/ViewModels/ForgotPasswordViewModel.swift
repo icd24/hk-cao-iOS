@@ -24,23 +24,6 @@ class ForgotPasswordViewModel: ObservableObject {
         
         actionAvailable = false
         
-        ResetPasswordApi.resetPassword(email: email) { dic, _, error in
-            self.actionAvailable = true
-            if let err = error {
-                ErrorHandler.handler.handleApiError(error: err, dict: dic)
-                return
-            }
-            
-            guard let status: String = dic?["status_code"] as? String, status == ErrorHandler.successCode
-            else {
-                ErrorHandler.handler.handleApiError(error: error, dict: dic)
-                return
-            }
-            
-            self.isSentEmail = true
-            self.email = ""
-            self.emailError = nil
-        }
     }
     
     func returnToLogin() {

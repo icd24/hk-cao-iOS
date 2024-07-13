@@ -45,29 +45,7 @@ class SplashViewModel: ObservableObject {
     }
 
     func refreshToken() {
-        RefreshTokenApi.refreshToken { dic, _, error in
-            if error != nil {
-                self.isCheckingLogin = false
-                return
-            }
-            
-            guard let status: String = dic?["status_code"] as? String,
-                  status == ErrorHandler.successCode,
-                  let data: String = dic?["data"] as? String else {
-                self.isCheckingLogin = false
-                return
-            }
-            
-            do {
-                let userInfo = try JSONDecoder().decode(UserInfo.self, from: data.data(using: .utf8)!)
-                Preferences.shared.userInfo = userInfo
-                self.isLoggedIn = true
-                self.isCheckingLogin = false
-            } catch {
-                self.isCheckingLogin = false
-            }
-            
-        }
+        // TODO: Implement later
     }
     
     func nextScreen() {

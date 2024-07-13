@@ -14,8 +14,6 @@ class ResetPasswordApi {
         let parameters: [String: Any] = [
             "email": email
         ]
-        ApiManager.callJsonAPI(api: resetPasswordUrl, parameter: parameters) { dic, res, error in
-            completionHandler(dic, res, error)
-        }
+        completionHandler(.failure(.notImplement))
     }
 }
