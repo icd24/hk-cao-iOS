@@ -11,8 +11,6 @@ import UserNotifications
 
 @main
 struct HK_CAO_IOSApp: App {
-    @StateObject var appState = AppState.shared
-    
     @UIApplicationDelegateAdaptor(AppDelegate.self)
     var appDelegate
     
@@ -20,7 +18,6 @@ struct HK_CAO_IOSApp: App {
         _ = NetworkUtility.shared   // for network available or not first time
         return WindowGroup {
             ContentView()
-                .environmentObject(appState)
         }
     }
 }

@@ -5,37 +5,41 @@
 //  Created by HieuNV on 26/06/2024.
 //
 
-import Foundation
+import SwiftUI
 
 struct AppString {
+    static func localizedString(key: String) -> String {
+        return NSLocalizedString(key, comment: "")
+    }
+    
     // tab item
-    static let TabTopItem = "トップページ"
-    static let TabCareerSheetItem = "キャリアシート"
-    static let TabInterviewItem = "面接依頼"
-    static let TabAuctionItem = "オークション"
-    static let TabMessageItem = "メッセージ"
+    static let TabTopItem = localizedString(key: "TabTopItem")
+    static let TabCareerSheetItem = localizedString(key: "TabCareerSheetItem")
+    static let TabInterviewItem = localizedString(key: "TabInterviewItem")
+    static let TabAuctionItem = localizedString(key: "TabAuctionItem")
+    static let TabMessageItem = localizedString(key: "TabMessageItem")
     
     // button
-    static let loginBtn = "ログイン"
-    static let registerButton = "会員登録"
-    static let okContent = "OK"
-    static let cancel = "キャンセル"
-    static let back = "戻る"
-    static let careerSheetChangeButton = "キャリアシートを更新する"
+    static let loginBtn = localizedString(key: "loginBtn")
+    static let registerButton = localizedString(key: "registerButton")
+    static let okContent = localizedString(key: "okContent")
+    static let cancel = localizedString(key: "cancel")
+    static let back = localizedString(key: "back")
+    static let careerSheetChangeButton = localizedString(key: "careerSheetChangeButton")
     
     // TermOfService
-    static let termOfServiceTitle = "キャリオク利用規約"
+    static let termOfServiceTitle = localizedString(key: "termOfServiceTitle")
     
     // Login
-    static let loginMailAddress = "メールアドレス"
-    static let loginPassword = "パスワード"
-    static let loginForgotPassword = "パスワードをお忘れの方はこちら"
-    static let loginForgotLoginId = "ログインIDをお忘れの方はこちら"
-    static let loginRegister = "会員登録はこちら"
+    static let loginMailAddress = localizedString(key: "loginMailAddress")
+    static let loginPassword = localizedString(key: "loginPassword")
+    static let loginForgotPassword = localizedString(key: "loginForgotPassword")
+    static let loginForgotLoginId = localizedString(key: "loginForgotLoginId")
+    static let loginRegister = localizedString(key: "loginRegister")
     
     // error message
-    static let errorDefault = "defaultMessage"
-    static let errorMailFormat = "が不正です"
-    static let errorPassword = "が不正です"
-    static let errorRequired = "を入力してください"
+    static let errorDefault = localizedString(key: "errorDefault")
+    static let errorMailFormat = localizedString(key: "errorMailFormat")
+    static let errorPassword = localizedString(key: "errorPassword")
+    static let errorRequired = localizedString(key: "errorRequired")
 }

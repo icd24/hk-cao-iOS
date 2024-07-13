@@ -15,14 +15,8 @@ class AppState: ObservableObject {
     
     @Published var deviceToken: String = ""
     
-    @Published var splashViewModel = SplashViewModel()
-    @Published var walkthroughModel = WalkthroughViewModel()
-    @Published var termOfServiceModel = TermOfServiceViewModel()
     @Published var loginViewModel = LoginViewModel()
-    @Published var forgotPasswordViewModel = ForgotPasswordViewModel()
     @Published var registerViewModel = RegisterViewModel()
-    @Published var tutorialViewModel = TutorialViewModel()
-    @Published var homeTabViewModel = HomeTabViewModel()
     
     static let shared = AppState()
     
@@ -52,11 +46,8 @@ class AppState: ObservableObject {
     
     func logoutAction() {
         Preferences.shared.userInfo = nil
-        splashViewModel.isLoggedIn = false
         currentScreen = .splash
-        splashViewModel = SplashViewModel()
         loginViewModel = LoginViewModel()
-        forgotPasswordViewModel = ForgotPasswordViewModel()
     }
 }
 

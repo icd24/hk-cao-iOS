@@ -5,7 +5,7 @@
 //  Created by HieuNV on 26/06/2024.
 //
 
-import Foundation
+import SwiftUI
 
 class ErrorHandler {
     static let handler = ErrorHandler()
@@ -52,7 +52,7 @@ class ErrorHandler {
         switch error {
         case .networkUnavailable:
             break
-        case .httpError(let code):
+        case .httpError(_):
             break
         case .tokenNotAvailable:
             break
@@ -104,7 +104,7 @@ class ErrorHandler {
             RefreshTokenApi.refreshToken { dict2, _, error2 in
                 guard let status2: String = dict2?["status_code"] as? String,
                       status2 == ErrorHandler.successCode,
-                      let data: [String: Any] = dict2?["data"] as? [String: Any],
+                      let data: String = dict2?["data"] as? String,
                       error2 == nil else {
                     let message = AppString.errorDefault
                     Preferences.shared.userInfo = nil
@@ -116,10 +116,23 @@ class ErrorHandler {
                     )
                     return
                 }
-                let currentUserInfo = Preferences.shared.userInfo
-                let userInfo = UserInfo(dictionary: data, email: currentUserInfo?.email)
-                Preferences.shared.userInfo = userInfo
-                callbackFunction!()
+                
+                do {
+                    let userInfo = try JSONDecoder().decode(UserInfo.self, from: data.data(using: .utf8)!)
+                    Preferences.shared.userInfo = userInfo
+                    callbackFunction!()
+                } catch {
+                    let message = AppString.errorDefault
+                    Preferences.shared.userInfo = nil
+                    AppState.showAlert(
+                        title: message,
+                        onOk: {
+                            AppState.shared.logoutAction()
+                        }
+                    )
+                    return
+                }
+                
             }
         } else {
             AppState.shared.logoutAction()

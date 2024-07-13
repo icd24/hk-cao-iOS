@@ -1,0 +1,79 @@
+/* 
+  Localizable.strings
+  HK_CAO_IOS
+
+  Created by HieuNV on 2024/07/12.
+  
+*/
+
+"TabTopItem" = "トップページ";
+"TabCareerSheetItem" = "キャリアシート";
+"TabInterviewItem" = "面接依頼";
+"TabAuctionItem" = "オークション";
+"TabMessageItem" = "メッセージ";
+
+// button
+"loginBtn" = "ログイン";
+"registerButton" = "会員登録";
+"okContent" = "OK";
+"cancel" = "キャンセル";
+"back" = "戻る";
+"careerSheetChangeButton" = "キャリアシートを更新する";
+
+// TermOfService
+"termOfServiceTitle" = "キャリオク利用規約";
+
+// Login
+"loginMailAddress" = "メールアドレス";
+"loginPassword" = "パスワード";
+"loginForgotPassword" = "パスワードをお忘れの方はこちら";
+"loginForgotLoginId" = "ログインIDをお忘れの方はこちら";
+"loginRegister" = "会員登録はこちら";
+
+// Error message
+"errorDefault" = "defaultMessage";
+"errorMailFormat" = "が不正です";
+"errorPassword" = "が不正です";
+"errorRequired" = "を入力してください";
+
+// Tutorial
+"tutorialCareerName" = "名前のテキスト";
+"tutorialCareerTitle" = "現在のタイトル";
+"tutorialCareerGender" = "性別：男性";
+"tutorialCareerBirthday" = "誕生日：1994.01.05";
+"tutorialCareerCertificates" = "資格：N1, Ielts 8.5, RMIT学士";
+
+"tutorialAuctionTitle" = "希望年収、職種などを記載し、";
+"tutorialAuctionContent" = "オークションを開催してみましょう！";
+
+"tutorialOthersInterviewTitle" = "面接依頼";
+"tutorialOthersInterviewContent" = "新しい面接依頼はありません。";
+"tutorialOthersMessageTitle" = "メッセージ";
+"tutorialOthersMessageContent" = "新しいメッセージはありません。";
+"tutorialOthersWalkingTitle" = "あしあと(過去3ヶ月)";
+"tutorialOthersWalkingContent1" = "6";
+"tutorialOthersWalkingContent2" = "件があります。";
+
+"tutorialActiveCareerTitle" = "キャリアシートを入力しましょう！";
+"tutorialActiveCareerContent" = "50%まで埋めるとオークションでの入札数が\n5倍になります！";
+"tutorialActiveAuctionTitle" = "オークションを開催しましょう！";
+"tutorialActiveAuctionContent" = "入力項目はたったの4ステップ！\n準備できたらあとは入札を待つだけ！";
+"tutorialActiveConfirmContent" = "チュートリアルはいつ\nでも確認できます";
+
+// register
+"registerEmailPasswordTitle" = "メールアドレスとパスワード登録";
+"registerEmailPasswordNextButton" = "規約に同意して登録する";
+"registerEmailPasswordTermOfService" = "利用規約";
+"registerEmailPasswordDescription" = "会員登録すると@ecareer.ne.jp、@kyarioku.jp、@mail.kyarioku.jpからメールが届くようになります。\n「迷惑メールフォルダ」に振り分けられることがありますので、あわせてご確認ください。";
+
+// walkthrough
+"walkthrough1Number" = "01";
+"walkthrough1Title" = "キャリアシートが\nほぼタップのみで作れる";
+"walkthrough1Content" = "出品する際に必要なキャリアシートは、簡単な操作で完成します。";
+"walkthrough2Number" = "02";
+"walkthrough2Title" = "求人を待つだけ";
+"walkthrough2Content" = "キャリアシート登録後は、企業からのオファーを待つだけ。";
+"walkthrough3Number" = "03";
+"walkthrough3Title" = "独自の視点で\n企業の特徴を確認できる";
+"walkthrough3Content" = "企業の特徴を知ることで、年収だけにとらわれない転職活動が可能です。";
+

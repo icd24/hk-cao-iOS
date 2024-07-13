@@ -1,0 +1,109 @@
+//
+//  LoginViewModels.swift
+//  HK_CAO_IOS
+//
+//  Created by HieuNV on 26/06/2024.
+//
+
+import SwiftUI
+
+class LoginViewModel: ObservableObject {
+    @Published var username: String = ""
+    @Published var password: String = ""
+    @Published var usernameError: String?
+    @Published var passwordError: String?
+    @Published var actionAvailable: Bool = true
+    @Published var storeLoginInformation: Bool = false {
+        didSet {
+            Preferences.shared.rememberLogin = storeLoginInformation
+        }
+    }
+    
+    /* 
+        init function is used to initialize the view model.
+        It is used to set the initial value for the properties.
+        It also sets the username and password if the user has checked the remember checkbox.
+        It removes the login info if the user has not checked the remember checkbox.
+    */
+    init() {
+        storeLoginInformation = Preferences.shared.rememberLogin
+    }
+
+    func login() {
+        guard actionAvailable else {
+            return
+        }
+        
+        guard validation() else {
+            return
+        }
+        
+        // TODO: Act like login success
+            AppState.shared.currentScreen = .tutorial
+            return
+        // TODO: End act like login success
+        
+        actionAvailable = false
+        
+        LoginApi.login(username: username, password: password) { dic, _, error in
+            self.actionAvailable = true
+            if let err = error {
+                ErrorHandler.handler.handleApiError(error: err, dict: dic)
+                return
+            }
+            
+            guard let status: String = dic?["status_code"] as? String, status == ErrorHandler.successCode
+            else {
+                ErrorHandler.handler.handleApiError(error: error, dict: dic)
+                return
+            }
+            
+            guard let data: String = dic?["data"] as? String
+            else {
+                AppState.showAlert(title: AppString.errorDefault)
+                return
+            }
+            
+            do {
+                let userInfo = try JSONDecoder().decode(UserInfo.self, from: data.data(using: .utf8)!)
+                Preferences.shared.userInfo = userInfo
+                
+                self.clearLoginInfo()
+                // TODO: Check to show tutorial or go to home.
+                AppState.shared.currentScreen = .home
+            } catch {
+                AppState.showAlert(title: AppString.errorDefault)
+                return
+            }
+            
+            
+        }
+    }
+    
+    func forgotPassword() {
+        AppState.shared.currentScreen = .forgotPassword
+    }
+    
+    func forgotUserId() {
+        // TODO: Go to forgot user id screen
+        AppState.shared.currentScreen = .forgotPassword
+    }
+
+    func register() {
+        AppState.shared.currentScreen = .register_EmailPassword
+    }
+    
+    func validation() -> Bool {
+        usernameError = Validation.validationEmail(email: username, fieldName: AppString.loginMailAddress)
+        passwordError = Validation.validationPassword(password: password, fieldName: AppString.loginPassword)
+        
+        return usernameError == nil && passwordError == nil
+    }
+    
+    private func clearLoginInfo() {
+        username = ""
+        password = ""
+        usernameError = nil
+        passwordError = nil
+    }
+}

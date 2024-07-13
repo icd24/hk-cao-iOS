@@ -5,7 +5,7 @@
 //  Created by HieuNV on 29/06/2024.
 //
 
-import Foundation
+import SwiftUI
 
 extension AppString {
     struct WalkthroughString: Identifiable {
@@ -17,19 +17,19 @@ extension AppString {
     
     static let walkthrough: [WalkthroughString] = [
         WalkthroughString(
-            number: "01",
-            title: "キャリアシートが\nほぼタップのみで作れる",
-            content: "出品する際に必要なキャリアシートは、簡単な操作で完成します。"
+            number: localizedString(key: "walkthrough1Number"),
+            title: localizedString(key: "walkthrough1Title"),
+            content: localizedString(key: "walkthrough1Content")
         ),
         WalkthroughString(
-            number: "02",
-            title: "求人を待つだけ",
-            content: "キャリアシート登録後は、企業からのオファーを待つだけ。"
+            number: localizedString(key: "walkthrough2Number"),
+            title: localizedString(key: "walkthrough2Title"),
+            content: localizedString(key: "walkthrough2Content")
         ),
         WalkthroughString(
-            number: "03",
-            title: "独自の視点で\n企業の特徴を確認できる",
-            content: "企業の特徴を知ることで、年収だけにとらわれない転職活動が可能です。"
-        ),
+            number: localizedString(key: "walkthrough3Number"),
+            title: localizedString(key: "walkthrough3Title"),
+            content: localizedString(key: "walkthrough3Content")
+        )
     ]
 }

@@ -5,7 +5,7 @@
 //  Created by HieuNV on 26/06/2024.
 //
 
-import Foundation
+import SwiftUI
 
 class Validation {
     static let maxEmailLength = 50          // TODO: Need specific with spec

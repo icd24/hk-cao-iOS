@@ -6,8 +6,8 @@
 //
 
 import Reachability
+import Foundation
 
-// swiftlint:disable force_try
 class NetworkUtility {
     static let shared = NetworkUtility()
 

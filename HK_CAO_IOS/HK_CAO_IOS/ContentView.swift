@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var appState: AppState
+    let appState = AppState.shared
     
     // rewrite body with appState.currentScreen
     var body: some View {
@@ -17,30 +17,23 @@ struct ContentView: View {
                     switch appState.currentScreen {
                     case .splash:
                         NavigationView {
-                            SplashView(viewModel: appState.splashViewModel)
+                            SplashView(viewModel: SplashViewModel())
                                 .navigationBarHidden(true)
-                                .environmentObject(appState)
                         }
                     case .walkthrough:
-                        WalkthroughView(viewModel: appState.walkthroughModel)
-                            .environmentObject(appState)
+                        WalkthroughView(viewModel: WalkthroughViewModel())
                     case .login:
                         LoginView(viewModel: appState.loginViewModel)
-                            .environmentObject(appState)
                     case .home:
-                        HomeTabView(viewModel: appState.homeTabViewModel)
-                            .environmentObject(appState)
+                        HomeTabView(viewModel: HomeTabViewModel())
                     case .forgotPassword:
-                        ForgotPasswordView(viewModel: appState.forgotPasswordViewModel)
-                            .environmentObject(appState)
+                        ForgotPasswordView(viewModel: ForgotPasswordViewModel())
                     case .tutorial:
-                        TutorialView(viewModel: appState.tutorialViewModel)
-                            .environmentObject(appState)
+                        TutorialView(viewModel: TutorialViewModel())
                     case .termOfService:
                         TermOfServiceView(viewModel: TermOfServiceViewModel())
                     case .register_EmailPassword:
                         Register_EmailPasswordView(viewModel: appState.registerViewModel)
-                            .environmentObject(appState)
                     default:
                         VStack{}
                     }
