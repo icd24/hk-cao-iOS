@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    let appState = AppState.shared
+    @EnvironmentObject var appState: AppState
     
     // rewrite body with appState.currentScreen
     var body: some View {
@@ -32,8 +32,8 @@ struct ContentView: View {
                         TutorialView(viewModel: TutorialViewModel())
                     case .termOfService:
                         TermOfServiceView(viewModel: TermOfServiceViewModel())
-                    case .register_EmailPassword:
-                        Register_EmailPasswordView(viewModel: appState.registerViewModel)
+                    case .register:
+                        RegisterView(viewModel: RegisterViewModel())
                     default:
                         VStack{}
                     }
@@ -54,4 +54,8 @@ struct ContentView: View {
             }
         }
     }
+}
+
+#Preview {
+    ContentView()
 }
