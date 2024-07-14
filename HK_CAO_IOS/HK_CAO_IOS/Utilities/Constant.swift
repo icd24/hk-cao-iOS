@@ -10,6 +10,7 @@ import SwiftUI
 struct AppColors {
     static let main = Color("main")
     static let mainWhite = Color("mainWhite")
+    static let main200 = Color("main200")
     static let main300 = Color("main300")
     static let textWhite = Color("textWhite")
     static let textDark = Color("textDark")
@@ -19,6 +20,11 @@ struct AppColors {
     static let transparent = Color("transparent")
     static let registerDescriptionBorder = Color("registerDescriptionBorder")
     static let tutorialAuction = Color("tutorialAuction")
+    
+    static let registerInfoStepLine = Color("infoStepLine")
+    
+    static let backgroundDisabledButton = Color("backgroundDisabledButton")
+    static let textDisabledButton = Color("textDisabledButton")
     
     static let textFieldTitle = Color("textFieldTitle")
     static let inputText = Color("inputText")

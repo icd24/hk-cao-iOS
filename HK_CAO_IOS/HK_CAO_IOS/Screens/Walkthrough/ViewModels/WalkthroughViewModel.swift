@@ -13,6 +13,6 @@ class WalkthroughViewModel: ObservableObject {
     }
     
     func onRegister() {
-        AppState.shared.currentScreen = .register_EmailPassword
+        AppState.shared.currentScreen = .register
     }
 }

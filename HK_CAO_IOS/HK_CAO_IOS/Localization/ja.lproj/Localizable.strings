@@ -18,7 +18,11 @@
 "okContent" = "OK";
 "cancel" = "キャンセル";
 "back" = "戻る";
+"next" = "次へ";
 "careerSheetChangeButton" = "キャリアシートを更新する";
+
+// common
+"optional" = "任意";
 
 // TermOfService
 "termOfServiceTitle" = "キャリオク利用規約";
@@ -31,7 +35,7 @@
 "loginRegister" = "会員登録はこちら";
 
 // Error message
-"errorDefault" = "defaultMessage";
+"errorDefault" = "が不正です";
 "errorMailFormat" = "が不正です";
 "errorPassword" = "が不正です";
 "errorRequired" = "を入力してください";
@@ -61,10 +65,35 @@
 "tutorialActiveConfirmContent" = "チュートリアルはいつ\nでも確認できます";
 
 // register
+// register - email/password
 "registerEmailPasswordTitle" = "メールアドレスとパスワード登録";
 "registerEmailPasswordNextButton" = "規約に同意して登録する";
 "registerEmailPasswordTermOfService" = "利用規約";
 "registerEmailPasswordDescription" = "会員登録すると@ecareer.ne.jp、@kyarioku.jp、@mail.kyarioku.jpからメールが届くようになります。\n「迷惑メールフォルダ」に振り分けられることがありますので、あわせてご確認ください。";
+
+"registerInfoStepProfile" = "プロフィール";
+"registerInfoStepWorkingHistory" = "職務経歴";
+"registerInfoStepDesire" = "希望条件";
+
+// register - gender
+"registerGenderSelect" = "性別を選択してください";
+"registerGenderMale" = "男性";
+"registerGenderFemale" = "女性";
+
+// register - Name
+"registerNameSelect" = "氏名を入力してください";
+"registerNameFirst" = "姓";
+"registerNameLast" = "名";
+"registerNameKanaFirst" = "セイ";
+"registerNameKanaLast" = "メイ";
+
+// register - location
+"registerLocationSelect" = "住所を入力してください";
+"registerLocationPortalCode" = "郵便番号";
+"registerLocationPrefecture" = "都道府県";
+"registerLocationAddress" = "市区町村";
+"registerLocationNote1" = "※海外にお住まいの方は「0000000」と入力してください。";
+"registerLocationNote2" = "※企業からの面接依頼・入札に承諾するまで公開されません";
 
 // walkthrough
 "walkthrough1Number" = "01";
@@ -76,4 +105,3 @@
 "walkthrough3Number" = "03";
 "walkthrough3Title" = "独自の視点で\n企業の特徴を確認できる";
 "walkthrough3Content" = "企業の特徴を知ることで、年収だけにとらわれない転職活動が可能です。";
-

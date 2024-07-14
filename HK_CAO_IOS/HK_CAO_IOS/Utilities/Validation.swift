@@ -12,6 +12,7 @@ class Validation {
     static let minPasswordLength = 8        // TODO: Need specific with spec
     static let maxPasswordLength = 255      // TODO: Need specific with spec
     
+    static let errorDefault = AppString.errorDefault
     static let emailErrorText = AppString.errorMailFormat
     static let passwordErrorText = AppString.errorPassword
     
@@ -42,6 +43,22 @@ class Validation {
         
         if validationPasswordFormatCheck(value: password!, fieldName: fieldName) != nil {
             return "＊\(fieldName)\(passwordErrorText)"
+        }
+        
+        return nil
+    }
+    
+    static func validationPortalCode(code: String?, length: Int, fieldName: String) -> String? {
+        if code == nil || code == "" {
+            return nil
+        }
+        if let errorNumber = validationNumber(value: code!, fieldName: fieldName)
+        {
+            return errorNumber
+        }
+        
+        if let errorLength = validationFixLength(value: code!, length: length, fieldName: fieldName) {
+            return errorLength
         }
         
         return nil
@@ -87,4 +104,24 @@ class Validation {
         
         return nil
     }
+    
+    static func validationNumber(value: String, fieldName: String) -> String? {
+        let numberRegex = "^[0-9]+$"
+        let numberPredicate = NSPredicate(format: "SELF MATCHES %@", numberRegex)
+        if !numberPredicate.evaluate(with: value) {
+            return fieldName + errorDefault
+        }
+        
+        return nil
+    }
+    
+    static func validationFixLength(value: String, length: Int, fieldName: String) -> String? {
+        if value.count != length {
+            return fieldName + errorDefault
+        }
+        
+        return nil
+    }
+    
+    
 }

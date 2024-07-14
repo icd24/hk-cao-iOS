@@ -25,7 +25,11 @@ struct AppString {
     static let okContent = localizedString(key: "okContent")
     static let cancel = localizedString(key: "cancel")
     static let back = localizedString(key: "back")
+    static let next = localizedString(key: "next")
     static let careerSheetChangeButton = localizedString(key: "careerSheetChangeButton")
+    
+    // common
+    static let optional = localizedString(key: "optional")
     
     // TermOfService
     static let termOfServiceTitle = localizedString(key: "termOfServiceTitle")

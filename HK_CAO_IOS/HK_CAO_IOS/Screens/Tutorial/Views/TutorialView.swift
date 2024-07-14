@@ -74,12 +74,9 @@ struct TutorialView: View {
     }
     
     var tutorialView: some View {
-        let headerViewModel: HeaderCommonModel = HeaderCommonModel()
-        headerViewModel.isMasked = true
-        headerViewModel.isShadow = false
         return GeometryReader { geometry in
             VStack (alignment: .leading, spacing: 0) {
-                HeaderCommon(viewModel: headerViewModel)
+                HeaderCommon(isMasked: true, isShadow: true)
                     .frame(height: 10 * ds.vRatio)
                 Spacer().frame(height: 10 * ds.vRatio)
                 

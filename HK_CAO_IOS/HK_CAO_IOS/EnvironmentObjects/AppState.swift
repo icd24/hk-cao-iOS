@@ -8,15 +8,21 @@
 import SwiftUI
 
 class AppState: ObservableObject {
-    @Published var currentScreen: Screen = .splash
+    @Published var flowScreenList: [Screen] = []
+    @Published var currentScreen: Screen = .splash {
+        didSet {
+            flowScreenList.append(oldValue)
+        }
+    }
     
     @Published var isAlertPresented: Bool = false
     @Published var alert: AlertState = AlertState()
     
     @Published var deviceToken: String = ""
     
+    
+    
     @Published var loginViewModel = LoginViewModel()
-    @Published var registerViewModel = RegisterViewModel()
     
     static let shared = AppState()
     
@@ -82,12 +88,5 @@ enum Screen {
     case tutorial
     case forgotPassword
     case termOfService
-    case register_EmailPassword
-    case register_Gender
-    case register_Name
-    case register_Location
-    case register_Phone
-    case register_Birthday
-    case register_Study
-    case register_Car
+    case register
 }

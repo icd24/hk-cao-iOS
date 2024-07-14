@@ -8,15 +8,20 @@
 import SwiftUI
 
 struct HeaderCommon: View {
-    @StateObject var viewModel: HeaderCommonModel
+    var isMasked: Bool = false
+    var isLeftHeader: Bool = false
+    var isShowMenu: Bool = true
+    var isShadow: Bool = true
+    let ds: DimensionSupport = DimensionSupport.shared
     
     var body: some View {
+        VStack {
             ZStack {
                 VStack {
                     Spacer().frame(height: 10)
                     HStack {
                         Spacer().frame(width: 20)
-                        if !viewModel.isLeftHeader {
+                        if !isLeftHeader {
                             Spacer().frame(width: 20)
                             Spacer()
                         }
@@ -25,7 +30,7 @@ struct HeaderCommon: View {
                             .scaledToFit()
                             .frame(height: 20)
                         Spacer()
-                        if viewModel.isShowMenu {
+                        if isShowMenu {
                             Image("ico_menu")
                                 .resizable()
                                 .scaledToFit()
@@ -42,11 +47,19 @@ struct HeaderCommon: View {
                 )
                 .overlay(
                     Group {
-                        if viewModel.isMasked {
+                        if isMasked {
                             AppColors.maskColor.edgesIgnoringSafeArea(.top)
                         }
                     }
                 )
             }
+            .frame(height: 10 * ds.vRatio)
+            .background(AppColors.mainWhite)
+            Spacer().frame(height: 30 * ds.vRatio)
+        }
     }
+}
+
+#Preview {
+    HeaderCommon()
 }

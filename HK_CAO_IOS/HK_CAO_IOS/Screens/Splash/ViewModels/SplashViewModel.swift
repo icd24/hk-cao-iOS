@@ -52,6 +52,8 @@ class SplashViewModel: ObservableObject {
         if !self.isCheckingLogin && AppState.shared.currentScreen == .splash {
             if self.isLoggedIn {
                 AppState.shared.currentScreen = .home
+                // clear flow list for remove login flow
+                AppState.shared.flowScreenList.removeAll()
             } else {
                 AppState.shared.currentScreen = .walkthrough
             }

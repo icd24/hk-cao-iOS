@@ -13,16 +13,9 @@ struct Register_EmailPasswordView: View {
     let ds: DimensionSupport = DimensionSupport.shared
     
     var body: some View {
-        let headerViewModel: HeaderCommonModel = HeaderCommonModel()
-        headerViewModel.isLeftHeader = true
-        headerViewModel.isShowMenu = false
-        
         return GeometryReader { geometry in
             VStack (alignment: .leading, spacing: 0) {
-                HeaderCommon(viewModel: headerViewModel)
-                    .frame(height: 10 * ds.vRatio)
-                    .background(AppColors.mainWhite)
-                Spacer().frame(height: 30 * ds.vRatio)
+                HeaderCommon(isLeftHeader: true, isShowMenu: false)
                 
                 VStack(alignment: .leading) {
                     Text(AppString.registerEmailPasswordTitle)
@@ -153,9 +146,10 @@ struct Register_EmailPasswordView: View {
             .background(AppColors.backgroundRegister)
             .edgesIgnoringSafeArea(.bottom)
         }
+        .navigationBarHidden(true)
     }
 }
 
 #Preview {
-    Register_EmailPasswordView(viewModel: AppState.shared.registerViewModel)
+    Register_EmailPasswordView(viewModel: RegisterViewModel())
 }
