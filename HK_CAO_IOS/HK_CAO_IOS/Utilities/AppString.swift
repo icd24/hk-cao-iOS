@@ -30,6 +30,7 @@ struct AppString {
     
     // common
     static let optional = localizedString(key: "optional")
+    static let pleaseSelect = localizedString(key: "pleaseSelect")
     
     // TermOfService
     static let termOfServiceTitle = localizedString(key: "termOfServiceTitle")

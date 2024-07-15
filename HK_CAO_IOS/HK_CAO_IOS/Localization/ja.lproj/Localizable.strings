@@ -20,6 +20,7 @@
 "back" = "戻る";
 "next" = "次へ";
 "careerSheetChangeButton" = "キャリアシートを更新する";
+"pleaseSelect" = "選択してください";
 
 // common
 "optional" = "任意";
@@ -94,6 +95,18 @@
 "registerLocationAddress" = "市区町村";
 "registerLocationNote1" = "※海外にお住まいの方は「0000000」と入力してください。";
 "registerLocationNote2" = "※企業からの面接依頼・入札に承諾するまで公開されません";
+
+// register - phone number
+"registerPhoneSelect" = "電話番号を入力してください";
+"registerPhoneNumber" = "電話番号";
+"registerPhoneNote1" = "※ハイフン⁨⁩無しで入力してください";
+"registerPhoneNote2" = "※企業からの面接依頼・入札に承諾するまで公開されません";
+
+// register - birthday
+"registerBirthdaySelect" = "生年月日を選択してください";
+"registerBirthdayTitle" = "生年月日";
+"registerBirthdayNote" = "※例：2001年5月8日生まれの場合、20010508と入力してください";
+
 
 // walkthrough
 "walkthrough1Number" = "01";

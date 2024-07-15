@@ -52,6 +52,7 @@ struct Register_LocationView: View {
                     HStack {
                         TextField("", text: $viewModel.portalCode1)
                             .focused($isFocusedTextField)
+                            .keyboardType(.numberPad)
                             .padding()
                             .frame(height: 40 * ds.vRatio)
                             .background(.mainWhite)
@@ -64,6 +65,7 @@ struct Register_LocationView: View {
                             )
                         TextField("", text: $viewModel.portalCode2)
                             .focused($isFocusedTextField)
+                            .keyboardType(.numberPad)
                             .padding()
                             .frame(height: 40 * ds.vRatio)
                             .background(.mainWhite)

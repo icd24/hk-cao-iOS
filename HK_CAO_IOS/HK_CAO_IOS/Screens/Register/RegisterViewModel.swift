@@ -33,6 +33,12 @@ class RegisterViewModel: ObservableObject {
     @Published var portalCodeError: String?
     @Published var prefectureError: String?
     @Published var addressError: String?
+    // Phone screen
+    @Published var phone: String = ""
+    @Published var phoneError: String?
+    // Birthday screen
+    @Published var birthday: Date = Date()
+    @Published var birthdayError: String?
     
     @Published var actionAvailable: Bool = true
     
@@ -127,6 +133,26 @@ class RegisterViewModel: ObservableObject {
         addressError = Validation.validationRequired(value: address, fieldName: AppString.registerLocationAddress)
         
         return portalCodeError == nil && prefectureError == nil && addressError == nil
+    }
+    
+    // MARK: - Phone screen
+    func onRegisterPhone() {
+        guard actionAvailable else {
+            return
+        }
+        
+        guard validatePhone() else {
+            return
+        }
+        
+        // TODO: Call api or store preference
+        
+        onNextStep()
+    }
+    func validatePhone() -> Bool {
+        phoneError = Validation.validationPhoneNumber(value: phone, fieldName: AppString.registerPhoneNumber)
+        
+        return phoneError == nil
     }
     
     // MARK: - Navigation

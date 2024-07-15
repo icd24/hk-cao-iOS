@@ -11,6 +11,7 @@ class Validation {
     static let maxEmailLength = 50          // TODO: Need specific with spec
     static let minPasswordLength = 8        // TODO: Need specific with spec
     static let maxPasswordLength = 255      // TODO: Need specific with spec
+    static let phoneNumberLength = 11       // TODO: Need specific with spec
     
     static let errorDefault = AppString.errorDefault
     static let emailErrorText = AppString.errorMailFormat
@@ -123,4 +124,28 @@ class Validation {
         return nil
     }
 
+    static func validationPhoneNumber(value: String, fieldName: String) -> String? {
+        if let errorRequired = validationRequired(value: value, fieldName: fieldName)
+        {
+            return errorRequired
+        }
+        
+        // Regular expression to match digits and common phone number characters
+        let phoneRegex = "^[0-9+*#(),;\\s]+$"
+        let phonePredicate = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        
+        // Check if value matches the phone number regex
+        if !phonePredicate.evaluate(with: value) {
+            return fieldName + errorDefault
+        }
+        
+        // Remove special characters to check length of only digits
+        let digitsOnly = value.filter { "0123456789".contains($0) }
+        if let errorPhoneLength = validationFixLength(value: digitsOnly, length: phoneNumberLength, fieldName: fieldName)
+        {
+            return errorPhoneLength
+        }
+        
+        return nil
+    }
 }
