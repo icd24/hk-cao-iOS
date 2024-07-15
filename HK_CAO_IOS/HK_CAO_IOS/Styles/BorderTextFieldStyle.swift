@@ -15,7 +15,7 @@ struct BorderTextFieldStyle: TextFieldStyle {
             .background(
                 RoundedRectangle(cornerRadius: 8)
                 .stroke(
-                    AppColors.inputText,
+                    .inputText,
                     lineWidth: 0.5))
     }
     // swiftlint:enable identifier_name

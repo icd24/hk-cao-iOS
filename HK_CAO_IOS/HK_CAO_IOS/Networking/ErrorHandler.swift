@@ -5,7 +5,7 @@
 //  Created by HieuNV on 26/06/2024.
 //
 
-import SwiftUI
+import Foundation
 
 class ErrorHandler {
     static let handler = ErrorHandler()

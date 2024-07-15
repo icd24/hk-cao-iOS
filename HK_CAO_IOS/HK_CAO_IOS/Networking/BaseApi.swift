@@ -54,62 +54,37 @@ extension ApiManager {
 
 // MARK: Extension for each method
 extension ApiManager {
-    static func post(url: String, data: Data? = nil, headers: [String: String]? = nil, completion: @escaping (Result<Data, ApiError>) -> Void) {
-        performDataTask(method: .POST, url: url, data: data, headers: headers, completion: completion)
+    static func post<T: Decodable>(url: String, data: Data? = nil, headers: [String: String]? = nil) async throws -> T {
+        try await performDataTask(method: .POST, url: url, data: data, headers: headers)
     }
     
-    static func get(url: String, queryData: [URLQueryItem]? = nil, headers: [String: String]? = nil, completion: @escaping (Result<Data, ApiError>) -> Void) {
-        performDataTask(method: .GET, url: url, queryData: queryData, headers: headers, completion: completion)
+    static func get<T: Decodable>(url: String, queryData: [URLQueryItem]? = nil, headers: [String: String]? = nil) async throws -> T {
+        try await performDataTask(method: .GET, url: url, queryData: queryData, headers: headers)
     }
     
-    static func put(url: String, data: Data? = nil, headers: [String: String]? = nil, completion: @escaping (Result<Data, ApiError>) -> Void) {
-        performDataTask(method: .PUT, url: url, data: data, headers: headers, completion: completion)
+    static func put<T: Decodable>(url: String, data: Data? = nil, headers: [String: String]? = nil) async throws -> T {
+        try await performDataTask(method: .PUT, url: url, data: data, headers: headers)
     }
     
-    private static func performDataTask(method: HTTPMethod, url: String, data: Data? = nil, queryData: [URLQueryItem]? = nil, headers: [String: String]? = nil, completion: @escaping (Result<Data, ApiError>) -> Void) {
-        
+    private static func performDataTask<T: Decodable>(method: HTTPMethod, url: String, data: Data? = nil, queryData: [URLQueryItem]? = nil, headers: [String: String]? = nil) async throws -> T {
         do {
             guard let request = try createRequest(method: method, url: url, data: data, queryData: queryData, headers: headers) else {
-                completion(.failure(.invalidParameters))
-                return
+                throw ApiError.invalidParameters
             }
-            
-            DispatchQueue.global().async {
-                URLSession.shared.dataTask(with: request) { data, response, error in
-                    if let error = error {
-                        DispatchQueue.main.async {
-                            completion(.failure(.invalidResponse))
-                        }
-                        return
-                    }
-                    
-                    guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-                        DispatchQueue.main.async {
-                            completion(.failure(.invalidResponse))
-                        }
-                        return
-                    }
-                    
-                    guard let data = data else {
-                        DispatchQueue.main.async {
-                            completion(.failure(.noData))
-                        }
-                        return
-                    }
-                    
-                    DispatchQueue.main.async {
-                        completion(.success(data))
-                    }
-                }.resume()
+
+            let (data, response) = try await URLSession.shared.data(for: request)
+
+
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                    throw ApiError.invalidResponse
             }
-        } catch let error as ApiError {
-            DispatchQueue.main.async {
-                completion(.failure(error))
+            do {
+                return try JSONDecoder().decode(T.self, from: data)
+            } catch {
+                throw ApiError.decodingError
             }
         } catch {
-            DispatchQueue.main.async {
-                completion(.failure(.invalidURL))
-            }
+            throw ApiError.invalidResponse
         }
     }
 }

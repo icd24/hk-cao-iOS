@@ -10,7 +10,7 @@ import SwiftUI
 
 class LoginApi {
     static private let loginUrl = "/api/login"
-    static func login(username: String, password: String, completionHandler: @escaping (Result<LoginResponseModel, ApiError>) -> Void) {
+    static func login(username: String, password: String) async throws -> LoginResponseModel {
         do {
             let parameters: LoginRequestModel = LoginRequestModel(
                 username: username,
@@ -21,22 +21,9 @@ class LoginApi {
             let encoder = JSONEncoder()
             let requestData = try encoder.encode(parameters)
             
-            ApiManager.post(url: loginUrl, data: requestData, completion: { result in
-                switch result {
-                case .success(let data):
-                    do {
-                        let decoder = JSONDecoder()
-                        let response = try decoder.decode(LoginResponseModel.self, from: data)
-                        completionHandler(.success(response))
-                    } catch {
-                        completionHandler(.failure(.decodingError))
-                    }
-                case .failure(let error):
-                    completionHandler(.failure(error))
-                }
-            })
+            return try await ApiManager.post(url: loginUrl, data: requestData)
         } catch {
-            completionHandler(.failure(.invalidParameters))
+            throw ApiError.invalidParameters
         }
     }
 }

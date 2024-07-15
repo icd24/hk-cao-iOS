@@ -1,0 +1,154 @@
+//
+//  Register+EmailPassword.swift
+//  HK_CAO_IOS
+//
+//  Created by HieuNV on 2024/07/09.
+//
+
+import SwiftUI
+
+struct Register_EmailPasswordView: View {
+    @ObservedObject var viewModel: RegisterViewModel
+    @FocusState private var isFocusedTextField: Bool
+    let ds: DimensionSupport = DimensionSupport.shared
+    
+    var body: some View {
+        return GeometryReader { geometry in
+            VStack (alignment: .leading, spacing: 0) {
+                HeaderCommon(isLeftHeader: true, isShowMenu: false)
+                
+                VStack(alignment: .leading) {
+                    Text(AppString.registerEmailPasswordTitle)
+                        .font(Font.system(size: 16 * ds.hRatio))
+                        .fontWeight(.bold)
+                        .lineLimit(1)
+                        .foregroundColor(.main)
+                        .padding(.bottom, 20 * ds.vRatio)
+                    
+                    VStack(alignment: .leading) {
+                        // Email field
+                        Text(AppString.loginMailAddress)
+                            .font(Font.system(size: 16 * ds.hRatio))
+                            .foregroundColor(.textFieldTitle)
+                        
+                        TextField("", text: $viewModel.email)
+                            .focused($isFocusedTextField)
+                            .padding()
+                            .frame(height: 40 * ds.vRatio)
+                            .background(.mainWhite)
+                            .foregroundColor(.textFieldTitle)
+                            .cornerRadius(5 * ds.hRatio)
+                            .padding(.top, 5 * ds.vRatio)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5 * ds.hRatio)
+                                    .stroke(.main, lineWidth: 1)
+                            )
+                        
+                        if let emailError = viewModel.emailError {
+                            Text(emailError)
+                                .font(Font.system(size: 16 * ds.hRatio))
+                                .foregroundColor(.red)
+                                .padding(.bottom, 2 * ds.vRatio)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        
+                        // Password field
+                        Text(AppString.loginPassword)
+                            .font(Font.system(size: 16 * ds.hRatio))
+                            .foregroundColor(.textFieldTitle)
+                        
+                        SecureField("", text: $viewModel.password)
+                            .focused($isFocusedTextField)
+                            .padding()
+                            .frame(height: 40 * ds.vRatio)
+                            .background(.mainWhite)
+                            .foregroundColor(.textFieldTitle)
+                            .cornerRadius(5 * ds.hRatio)
+                            .padding(.top, 5 * ds.vRatio)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.main, lineWidth: 1)
+                            )
+                        
+                        if let passwordError = viewModel.passwordError {
+                            Text(passwordError)
+                                .font(Font.system(size: 16 * ds.hRatio))
+                                .foregroundColor(.red)
+                                .lineLimit(10)
+                                .padding(.bottom, 2 * ds.vRatio)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        
+                        Button {
+                            isFocusedTextField = false
+                            viewModel.onRegisterEmailPassword()
+                        } label: {
+                            Text(AppString.registerEmailPasswordNextButton)
+                                .font(Font.system(size: 20 * ds.hRatio, weight: .bold))
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(.main)
+                                .foregroundColor(.white)
+                                .cornerRadius(12 * ds.hRatio)
+                                .padding(.vertical, 20 * ds.vRatio)
+                        }
+                        
+                        Button(action: {
+                            viewModel.onTermOfService()
+                        }, label: {
+                            HStack(spacing: 0) {
+                                TextBubblePointer()
+                                    .fill(.main)
+                                    .frame(width: 9, height: 6)
+                                    .rotationEffect(Angle(degrees: 90))
+                                    .offset(y: -1)
+                                Text(AppString.registerEmailPasswordTermOfService)
+                                    .underline()
+                                    .font(Font.system(size: 16 * ds.hRatio))
+                                    .foregroundColor(.hyperLink)
+                                    .padding(.bottom, 4 * ds.vRatio)
+                            }
+                        })
+                        
+                        Text(AppString.registerEmailPasswordDescription)
+                            .font(Font.system(size: 14 * ds.hRatio))
+                            .foregroundColor(Color.red)
+                            .lineLimit(10)
+                            .padding()
+                            .background(
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10 * ds.hRatio)
+                                        .fill(.textWhite)
+                                    RoundedRectangle(cornerRadius: 10 * ds.hRatio)
+                                        .stroke(.registerDescriptionBorder, lineWidth: 5 * ds.hRatio)
+                                }
+                            )
+                        
+                        Button(action: {
+                            viewModel.onForgotPassword()
+                        }, label: {
+                            Text(AppString.loginForgotPassword)
+                                .underline()
+                                .font(Font.system(size: 16 * ds.hRatio, weight: .bold))
+                                .foregroundColor(.hyperLink)
+                                .padding(.top, 10 * ds.vRatio)
+                        })
+                    }
+                    .padding(.all, 20 * ds.hRatio)
+                    .background(
+                        RoundedRectangle(cornerRadius: 8 * ds.hRatio)
+                            .fill(.textWhite)
+                            .shadow(color: .shadow30, radius: 3 * ds.hRatio, x: 0, y: 0)
+                    )
+                }
+                .padding(.horizontal, 20 * ds.hRatio)
+            }
+            .background(.backgroundRegister)
+            .edgesIgnoringSafeArea(.bottom)
+        }
+    }
+}
+
+#Preview {
+    Register_EmailPasswordView(viewModel: RegisterViewModel())
+}

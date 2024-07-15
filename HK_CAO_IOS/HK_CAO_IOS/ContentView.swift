@@ -34,8 +34,6 @@ struct ContentView: View {
                         TermOfServiceView(viewModel: TermOfServiceViewModel())
                     case .register:
                         RegisterView(viewModel: RegisterViewModel())
-                    default:
-                        VStack{}
                     }
                 
                 if appState.isAlertPresented {

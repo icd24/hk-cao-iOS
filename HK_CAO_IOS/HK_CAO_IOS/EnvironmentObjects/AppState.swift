@@ -20,8 +20,6 @@ class AppState: ObservableObject {
     
     @Published var deviceToken: String = ""
     
-    
-    
     @Published var loginViewModel = LoginViewModel()
     
     static let shared = AppState()

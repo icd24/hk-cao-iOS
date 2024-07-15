@@ -63,7 +63,7 @@ class Validation {
         
         return nil
     }
-    
+
     static func validationRequired(value: String?, fieldName: String) -> String? {
         guard let value = value, !value.isEmpty else {
             return "＊\(fieldName)\(AppString.errorRequired)"
@@ -122,6 +122,5 @@ class Validation {
         
         return nil
     }
-    
-    
+
 }

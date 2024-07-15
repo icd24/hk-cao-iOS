@@ -11,9 +11,10 @@ class ResetPasswordApi {
     static private let resetPasswordUrl = "/forgot-password"
 
     static func resetPassword(email: String, completionHandler: @escaping DRRequestHandler) {
-        let parameters: [String: Any] = [
-            "email": email
-        ]
-        completionHandler(.failure(.notImplement))
+        // TODO: 
+//        let parameters: [String: Any] = [
+//            "email": email
+//        ]
+//        completionHandler(.failure(.notImplement))
     }
 }

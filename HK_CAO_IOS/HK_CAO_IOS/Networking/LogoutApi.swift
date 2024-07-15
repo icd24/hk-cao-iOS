@@ -9,10 +9,8 @@ import Foundation
 
 class LogoutApi {
     static private let logoutUrl = "/logout"
-    static func logout(completionHandler: @escaping DRRequestHandler) {
-        ApiManager.post(
-            url: logoutUrl) { result in
-                completionHandler(result)
-            }
+    
+    static func logout() async throws -> LogoutResponseModel {
+        try await ApiManager.post(url: logoutUrl)
     }
 }

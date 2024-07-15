@@ -4,9 +4,9 @@
 <dict>
 	<key>BASE_URL</key>
 	<string>${BASE_URL}</string>
-	<key>SERVICE_PATH</key>
-	<string>${SERVICE_PATH}</string>
 	<key>NSUserNotificationsUsageDescription</key>
 	<string>通知が許可</string>
+	<key>SERVICE_PATH</key>
+	<string>${SERVICE_PATH}</string>
 </dict>
 </plist>
